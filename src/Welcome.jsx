@@ -3,8 +3,11 @@ export default function Welcome() {
   return (
     <div className="welcome">
       <div className="welcome-details">
-        {/* <img src="/images/church-pfp.png" alt="" /> */}
-        <h1>Welcome To</h1>
+        <div className="form">
+          <img src="/images/church-pfp.png" alt="" />
+          <h1>Welcome To</h1>
+        </div>
+
         <h2>Destiny Christian Church Int'l</h2>
         <p>where everyone is somebody and Jesus Christ is Lord</p>
         <p className="sort">
@@ -52,8 +55,8 @@ export default function Welcome() {
         <p className="intro">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
+            width="24"
+            height="24"
             viewBox="0 0 16 16"
           >
             <path
@@ -77,7 +80,9 @@ export default function Welcome() {
           <div class="divider"></div>
 
           <div className="service-periods">
-            <p>WEDNESDAY</p>
+            <p className="clash">
+              NO.111 IHEORJI AVENUE. OFF 176 OHANKU ROAD, ABA
+            </p>
             <h6>GLORY LAND PARISH (HQ)</h6>
             <p>6:00pm - 7:00pm</p>
           </div>
@@ -85,7 +90,7 @@ export default function Welcome() {
           <div class="divider"></div>
 
           <div className="service-periods">
-            <p>FRIDAY</p>
+            <p className="clash">33 UMUOCHAM OFF OLD EZIAHA SCHOOL</p>
             <h6>POTTER'S HOUSE</h6>
             <p>6:00pm - 7:00pm</p>
           </div>

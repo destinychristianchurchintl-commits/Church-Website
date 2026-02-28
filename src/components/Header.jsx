@@ -3,83 +3,85 @@ import { useEffect, useState } from "react";
 import profilePic from "/public/images/church-pfp.png";
 import { Link } from "react-router-dom";
 
-// Header component
 function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Handle blur-on-scroll
   useEffect(() => {
-    // Handle sticky blur effect
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    const hamburger = document.querySelector(".hamburger-menu");
-    const navMenu = document.querySelector("nav ul");
-
-    if (!hamburger || !navMenu) return; // safety check
-
-    const toggleMenu = () => {
-      navMenu.classList.toggle("active");
-      const bars = document.querySelectorAll(".bar");
-      bars.forEach((bar) => bar.classList.toggle("active"));
-    };
-
-    const closeMenu = (e) => {
-      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        navMenu.classList.remove("active");
-        const bars = document.querySelectorAll(".bar");
-        bars.forEach((bar) => bar.classList.remove("active"));
-      }
-    };
-
-    hamburger.addEventListener("click", toggleMenu);
-    document.addEventListener("click", closeMenu);
-
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      hamburger.removeEventListener("click", toggleMenu);
-      document.removeEventListener("click", closeMenu);
     };
   }, []);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
+
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
-      {/* Left Header Side */}
+      {/* Left Section */}
       <div className="left-section">
         <img src={profilePic} alt="logo" />
+        <p>Destiny Christian Church International</p>
       </div>
 
       {/* Nav */}
       <nav>
-        <ul>
-          <Link className="button" to="/">
-            Home
-          </Link>
-          <Link className="button" to="/about">
-            About Us
-          </Link>
-          <Link className="button" to="/contactus">
-            Sermons
-          </Link>
-          <Link className="button" to="/chatnow">
-            Events
-          </Link>
-          <Link className="button" to="/gallery">
-            Ministries
-          </Link>
-          <Link className="button" to="/admin/upload">
-            Give
-          </Link>
-          <Link className="button" to="/admin/upload">
-            Contact
-          </Link>
+        <ul className={isMenuOpen ? "active" : ""}>
+          <li>
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)}>
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link to="/sermons" onClick={() => setIsMenuOpen(false)}>
+              Sermons
+            </Link>
+          </li>
+          <li>
+            <Link to="/events" onClick={() => setIsMenuOpen(false)}>
+              Events
+            </Link>
+          </li>
+          <li>
+            <Link to="/ministries" onClick={() => setIsMenuOpen(false)}>
+              Ministries
+            </Link>
+          </li>
+          <li>
+            <Link to="/give" onClick={() => setIsMenuOpen(false)}>
+              Give
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+              Contact
+            </Link>
+          </li>
         </ul>
 
-        {/* Hamburger Menu */}
-        <div className="hamburger-menu">
+        {/* Hamburger */}
+        <div
+          className={`hamburger-menu ${isMenuOpen ? "active" : ""}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>

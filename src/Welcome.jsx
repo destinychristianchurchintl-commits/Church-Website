@@ -27,7 +27,7 @@ export default function Welcome() {
 
           <div class="divider"></div>
 
-          <div className="service-periods">
+          <div className="service-periods shift">
             <p>WEDNESDAY</p>
             <h6>SCHOOL OF WISDOM</h6>
             <p>6:00pm - 7:00pm</p>
@@ -35,7 +35,7 @@ export default function Welcome() {
 
           <div class="divider"></div>
 
-          <div className="service-periods">
+          <div className="service-periods shift">
             <p>FRIDAY</p>
             <h6>REVIVAL/BREAKTHROUGH SERVICE</h6>
             <p>6:00pm - 7:00pm</p>
@@ -43,7 +43,7 @@ export default function Welcome() {
 
           <div class="divider"></div>
 
-          <div className="service-periods">
+          <div className="service-periods shift">
             <p>MONTHLY · 1st FRIDAY</p>
             <h6>TARRY NIGHT</h6>
             <p>6:00pm - 7:00pm</p>

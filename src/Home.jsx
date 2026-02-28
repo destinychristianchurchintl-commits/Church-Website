@@ -7,7 +7,7 @@ export default function Home() {
         <div className="black-cover">
           <div className="home-details">
             <img src="/images/church-pfp.png" alt="" />
-            <h1>Destiny Christian Church Int'l</h1>
+            <h1 className="mobile-font">Destiny Christian Church Int'l</h1>
             <p>...changing the World with the Word</p>
           </div>
         </div>
